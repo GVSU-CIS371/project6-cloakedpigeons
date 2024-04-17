@@ -34,13 +34,15 @@
 // your answer
 import { useProductStore, products } from '../stores/ProductStore'; 
 import StoreItem from '../components/StoreItem.vue';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const productStore = useProductStore();
+const isLoading = ref(true); // Define a loading state
 
-onMounted(() => {
+onMounted( async () => {
   // Initialize products on component mount
-  productStore.init();
+  await productStore.init();
+  isLoading.value = false; // Set loading state to false after initialization
 });
 
 </script>
