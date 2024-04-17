@@ -23,3 +23,36 @@ const vuetify = createVuetify({
 });
 const pinia = createPinia();
 createApp(App).use(vuetify).use(pinia).use(router).mount("#app");
+
+// FIREBASE SETUP
+// Import the functions you need from the SDKs you need
+import { initializeApp, FirebaseApp } from "firebase/app";
+import { getFirestore, Firestore } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDXmxqAHOxGKHwGaNJo7zGGbsI7JefUbJo",
+  authDomain: "cis371-project6-71871.firebaseapp.com",
+  projectId: "cis371-project6-71871",
+  storageBucket: "cis371-project6-71871.appspot.com",
+  messagingSenderId: "121957581926",
+  appId: "1:121957581926:web:8c47147b6bd27a649959a7",
+  measurementId: "G-0CXFNSEVHW"
+};
+
+// Initialize Firebase
+//const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
+//const myapp: FirebaseApp = initializeApp(firebaseConfig);
+//const db: Firestore = getFirestore(myapp);
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+export {app, db}

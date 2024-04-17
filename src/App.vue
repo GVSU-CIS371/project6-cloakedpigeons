@@ -30,5 +30,7 @@ const links = ref([
   { text: "Clothing", to: "/clothing", icon: "mdi-tshirt-crew" },
   { text: "Groceries", to: "/groceries", icon: "mdi-cart" },
   { text: "Best Seller", to: "/bestseller", icon: "mdi-cash-register" },
+  { text: "Create", to: "/newitem", icon:"mdi-plus-circle" } // Add create button, should create popup to add info to
+  // add new store item to database
 ]);
 </script>
