@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps, computed } from "vue";
+  //import { defineProps, computed } from "vue";
   import { useRouter } from "vue-router";
   //import { randomUsers } from "../data/usersData";
   //import { product } from "../components/StoreItem.vue";

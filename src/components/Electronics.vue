@@ -42,14 +42,5 @@ onMounted(() => {
   // Initialize products on component mount
   productStore.init();
 });
-import { useProductStore, products } from '../stores/ProductStore'; 
-import StoreItem from '../components/StoreItem.vue';
-import { onMounted } from 'vue';
 
-const productStore = useProductStore();
-
-onMounted(() => {
-  // Initialize products on component mount
-  productStore.init();
-});
 </script>
