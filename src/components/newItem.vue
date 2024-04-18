@@ -43,6 +43,10 @@
             <input type="text" v-model="image" placeholder="Enter image URL">
             <!--<button @click="addImage">Add Image</button>-->
         </div>
+        <div class="field">
+          <label>ID:</label>
+          <input type="text" id="productID" v-model="productID"/>
+        </div>
         <div class="picture">
           <img v-if="image" :src="image" alt="Invalid Image" style="max-width: 20%">
         </div>
@@ -70,16 +74,14 @@
   const stock = ref(0);
   const category = ref('');
   const image = ref('');
-  let id ='';
+  const productID = ref(0);
 
-  getDocs(productCollection)
-    .then((querySnapshot) => {
-      id = (querySnapshot.size).toString();
-    });
+    
 
   function addItem() {
     // Get user confirmation first
     if (confirm("Are you sure you want to add this item?")) {
+    const id = productID.value.toString()
     const productDoc = doc(db, "products", id); 
     setDoc(productDoc, {
       name: productName.value,
@@ -88,7 +90,8 @@
       rating: rating.value,
       stock: stock.value,
       category: category.value,
-      image: image.value
+      image: image.value,
+      //productID: productID.value
     });
     router.back();
   } else {
