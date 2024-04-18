@@ -3,21 +3,7 @@
   <v-container fluid>
     <v-row>
       <v-col
-        v-for="product in products"
-        :key="product.id"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-      >
-        <store-item :product="product"></store-item>
-      </v-col>
-    </v-row>
-  </v-container>
-  <v-container fluid>
-    <v-row>
-      <v-col
-        v-for="product in products"
+        v-for="product in productStore.products"
         :key="product.id"
         cols="12"
         sm="6"
@@ -32,17 +18,16 @@
 
 <script lang="ts" setup>
 // your answer
-import { useProductStore, products } from '../stores/ProductStore'; 
+import { useProductStore } from '../stores/ProductStore'; 
 import StoreItem from '../components/StoreItem.vue';
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
 const productStore = useProductStore();
-const isLoading = ref(true); // Define a loading state
 
-onMounted( async () => {
+onMounted(() => {
   // Initialize products on component mount
-  await productStore.init();
-  isLoading.value = false; // Set loading state to false after initialization
+  productStore.init();
 });
 
 </script>
+
