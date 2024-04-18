@@ -208,6 +208,7 @@ function cancelModify() {
 }
 
 function updateStore() {
+  if (confirm("Are you sure you want to update this item?")) {
   try {
     // Push the modified changes to firestore
     const currentDoc = doc(db, "products", product.id)
@@ -225,6 +226,9 @@ function updateStore() {
   }
   // Toggle the edit mode to false
   editMode.value = false;
+} else {
+  // Else do nothing
+  }
 }
 
 </script>
