@@ -56,45 +56,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from "vue";
+  //import { defineProps, computed } from "vue";
   import { useRouter } from "vue-router";
-  import { db } from "../main";
-  import { collection, doc, setDoc, getDocs } from "firebase/firestore";
-  
+  //import { randomUsers } from "../data/usersData";
+  //import { product } from "../components/StoreItem.vue";
+  //const { id } = defineProps({
+  //  id: String,
+  //});
+  // const user = computed(() => randomUsers.value.find((u) => u.id === id));
   const router = useRouter();
-  const productCollection = collection(db,"products");
-  const productName = ref('');
-  const description = ref('');
-  const price = ref(0);
-  const rating = ref(0);
-  const stock = ref(0);
-  const category = ref('');
-  const image = ref('');
-  let id ='';
-
-  getDocs(productCollection)
-    .then((querySnapshot) => {
-      id = (querySnapshot.size).toString();
-    });
-
-  function addItem() {
-    // Get user confirmation first
-    if (confirm("Are you sure you want to add this item?")) {
-    const productDoc = doc(db, "products", id); 
-    setDoc(productDoc, {
-      name: productName.value,
-      description: description.value,
-      price: price.value,
-      rating: rating.value,
-      stock: stock.value,
-      category: category.value,
-      image: image.value
-    });
-    router.back();
-  } else {
-    // Do nothing
-  }
-}
 
   function goBack() {
     router.back();
