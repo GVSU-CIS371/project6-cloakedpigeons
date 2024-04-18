@@ -26,9 +26,8 @@ createApp(App).use(vuetify).use(pinia).use(router).mount("#app");
 
 // FIREBASE SETUP
 // Import the functions you need from the SDKs you need
-import { initializeApp, FirebaseApp } from "firebase/app";
-import { getFirestore, Firestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

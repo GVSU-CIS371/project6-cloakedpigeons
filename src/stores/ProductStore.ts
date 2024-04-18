@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ProductDoc, Product } from "../types/product";
 import { initProducts } from "../data-init";
 import { db } from "../main"; // Import the firebase app
-import { collection, addDoc, doc, setDoc, DocumentReference, getDocs, QueryDocumentSnapshot, QuerySnapshot } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, QueryDocumentSnapshot, QuerySnapshot } from "firebase/firestore";
 
 export const useProductStore = defineStore("ProductStore", {
   // Define products state, initially empty array of ProductDoc
